@@ -7,7 +7,7 @@ $("#search").keypress(function(e) {
             var container = $("<div />");
             for(var i=0, l = json.length ; i < l ; i ++) {
                 var item = json[i];
-                container.append('<a href="'+item.url+'">'+item.text+'</a><br/>');
+                container.append('<a href="'+item.url+'" target="_blank">'+item.text+'</a><br/>');
             }
             $("#result").html(container);
         });

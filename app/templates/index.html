@@ -5,15 +5,18 @@
 
     <body>
         <h1>I'm up.... and you?</h1>
+        
         <div>utc_time: {{ utc_time }}</div>
         <div>time: {{ time }}</div>
+
+        <div>Create a service that gets its users more followers automatically by targeting tweets containing a specific keyword and faving them. </div>
 
         {% if username != None: %}
             <div>Logged as: {{ username }}</div>
             <a href="/logout">Logout</a>
 
             <div>
-                Search:
+                Fav 5 tweets related to this keword:
                 <input type="text" name="Search" id="search" />
                 <div id="result"></div>
 
@@ -22,6 +25,7 @@
             <a href="/login">Login</a>
         {% endif %}
         
+        <div>Cool project available here: <a href="https://github.com/papamuziko/twitter_fav">Github</a><div>
         <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     </body>
 </html>    
