@@ -8,7 +8,8 @@ DEV_CONFIG = {
     'twitter': {
         'customer_key': os.environ.get('TW_CUSTOMER_KEY'),
         'customer_secret': os.environ.get('TW_CUSTOMER_SECRET')
-    } 
+    },
+    'secret_key': os.environ.get('TWITTER_FAV_SECRET')
 }
 
 PROD_CONFIG = {
@@ -19,7 +20,8 @@ PROD_CONFIG = {
     'twitter': {
         'customer_key': os.environ.get('TW_CUSTOMER_KEY'),
         'customer_secret': os.environ.get('TW_CUSTOMER_SECRET')
-    } 
+    },
+    'secret_key': os.environ.get('TWITTER_FAV_SECRET')
 }
 
 CONFIG = DEV_CONFIG

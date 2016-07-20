@@ -1,10 +1,25 @@
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
 
     <body>
         <h1>I'm up.... and you?</h1>
         <div>utc_time: {{ utc_time }}</div>
         <div>time: {{ time }}</div>
+
+        {% if username != None: %}
+            <div>Logged as: {{ username }}</div>
+            <a href="/logout">Logout</a>
+
+            <div>
+                Search:
+                <input type="text" name="Search" id="search" />
+            <div>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
+        
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     </body>
 </html>    
