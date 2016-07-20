@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import json
 from flask import Flask
 from flask import render_template, redirect
 from flask import g, session, request, url_for, flash
@@ -31,7 +31,14 @@ def index():
 @app.route('/search', methods=['POST'])
 def search():
     q = request.form.get('q')
-    return q
+    resp = twitter.request('search/tweets.json', data={ 'q': q })
+    statuses = resp.data['statuses']
+    res = []
+    for s in statuses:
+       res.append({'text': s['text'], 'url': "https://twitter.com/statuses/%s" % s['id']})
+       if len(res) > 5:
+            break
+    return json.dumps(res)
 
 @twitter.tokengetter
 def get_twitter_token():
