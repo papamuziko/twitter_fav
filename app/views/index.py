@@ -36,7 +36,7 @@ def search():
     res = []
     for s in statuses:
        res.append({'text': s['text'], 'url': "https://twitter.com/statuses/%s" % s['id']})
-       twitter.request('favorites/create.json', data={ 'id': s['id'] })
+       request_favorite = twitter.post('favorites/create.json', data={ 'id': s['id'] })
        if len(res) > 5:
             break
     return json.dumps(res)
