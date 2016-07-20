@@ -49,8 +49,8 @@ def before_request():
 
 @app.route('/login')
 def login():
-    callback_url = url_for('oauthorized', next=request.args.get('next'))
-    return twitter.authorize(callback=callback_url or request.referrer or None)
+    callback_url = CONFIG['twitter']['callback_url']
+    return twitter.authorize(callback=callback_url)
 
 
 @app.route('/logout')
